@@ -12,6 +12,7 @@ numbers = map(lambda x : int(x), numbers) # convert them to int
 operationType = response.split(" ")[4]
 
 result = reduce(operationDic[operationType], numbers[:-1]) # apply operation to all number except the last one (id)
+if operationDic[operationType] == operator.sub: result *= -1
 
 # POST
 params = urllib.urlencode({'contact':'<>', 'payload': str(result), 'id': str(numbers[-1])})
